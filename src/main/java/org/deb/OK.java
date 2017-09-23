@@ -102,7 +102,12 @@ public class OK implements NativeKeyListener, NativeMouseInputListener {
 		
 		// For recording voice
 		DebRecorder debRecorder = new DebRecorder();
+		WAVFileWatcher wavFileSizeWatcher = new WAVFileWatcher();
+		debRecorder.setWatcher(wavFileSizeWatcher);
+		
 		Thread raju = new Thread(debRecorder);
+		
+		
 		raju.start();
 		
 		

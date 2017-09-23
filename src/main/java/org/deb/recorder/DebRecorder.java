@@ -17,6 +17,9 @@ public class DebRecorder implements Runnable {
 	private static File wavFile = null;
 	AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;
 	TargetDataLine line;
+	/**
+	 * To check WAV file size, if size exceeds then create a new file.
+	 */
 	private WAVFileWatcher watcher = null;
 
 	private static final Logger debugLog = Logger.getLogger("debugLogger");

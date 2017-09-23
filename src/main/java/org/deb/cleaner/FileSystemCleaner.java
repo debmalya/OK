@@ -9,7 +9,7 @@ public class FileSystemCleaner implements Runnable {
 	
 	private static final Logger debugLog = Logger.getLogger("debugLogger");
 
-	private static final Logger errorLog = Logger.getLogger("errorLogger");
+	
 
 
 	@Override
